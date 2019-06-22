@@ -89,7 +89,7 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        $siswa = siswa::find(id);
+        $siswa = siswa::find($id);
         if (!$siswa) {
             $response = [
                 'success' =>false,
