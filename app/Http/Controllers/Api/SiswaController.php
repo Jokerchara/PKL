@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Validator;
 use App\User;
 use App\siswa;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class SiswaController extends Controller
         //1. tampung semua inputan ke $inputan
           $input = $required->all();
         //2. buat validasi di tampung ke $validator
-        $validator = validator::make($input,[
+        $validator = Validator::make($input,[
             'nama' => 'required'
         ]);
         //3. cek validasi
