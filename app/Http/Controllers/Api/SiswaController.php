@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Validator;
 use App\User;
-use App\siswa;
+use App\Siswa;
 use Illuminate\Http\Request;
 class SiswaController extends Controller
 {
@@ -16,7 +16,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = siswa::all();
+        $siswa = Siswa::all();
         if(!$siswa) {
             $response = [
                     'success'=> false,
