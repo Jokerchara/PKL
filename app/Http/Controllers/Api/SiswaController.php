@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Validator;
+use Validator;
 use App\User;
 use App\siswa;
 use Illuminate\Http\Request;
