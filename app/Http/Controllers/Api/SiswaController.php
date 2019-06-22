@@ -18,7 +18,7 @@ class SiswaController extends Controller
     {
         $siswa = siswa::all();
         if(!$siswa) {
-            $Response = [
+            $response = [
                     'success'=> false,
                     'data' => 'Empty',
                     'message' => 'Siswa tidak ditemukan.'
@@ -49,7 +49,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         //1. tampung semua inputan ke $inputan
-          $input = $required->all();
+          $input = $request->all();
         //2. buat validasi di tampung ke $validator
         $validator = Validator::make($input,[
             'nama' => 'required'
