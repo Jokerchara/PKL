@@ -66,7 +66,7 @@ class SiswaController extends Controller
         }
         //4. buat fungsi untuk menghandle semua inputan ->
         //dimasukan ke table
-        $siswa = siswa::create($input);
+        $siswa = Siswa::create($input);
        //5.menampilkan response
           $response = [
                 'success' =>true,
@@ -74,7 +74,7 @@ class SiswaController extends Controller
                 'massage' =>'berhasil.'
             ];
             //6.tampilkan berhasil
-            return $response() ->json($response,200);
+            return response() ->json($response,200);
 
     }
 
