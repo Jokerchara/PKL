@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Validator;
-use App\User;
+use App\user;
 use App\Siswa;
 use Illuminate\Http\Request;
 class SiswaController extends Controller
@@ -16,23 +16,21 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = Siswa::all();
-        if(!$siswa) {
+        $siswa = siswa::all();
+        if (!$siswa) {
             $response = [
-                    'success'=> false,
-                    'data' => 'Empty',
-                    'message' => 'Siswa tidak ditemukan.'
+                'success' =>false,
+                'data' => 'Empty',
+                'massage' =>'siswa tidak di temukan'
             ];
-            return response()->json($response, 404);
+            return response()->json($response,404);
         }
-
         $response = [
-            'success' => true,
-            'data' => $siswa,
-            'message' => 'Berhasil.'
-        ];
-
-        return response()->json($response, 200);
+                'success' =>true,
+                'data' => $siswa,
+                'massage' =>'berhasil.'
+            ];
+            return response()->json($response,200);
     }
 
     /**
@@ -40,6 +38,11 @@ class SiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function create()
+    {
+        //
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -66,7 +69,7 @@ class SiswaController extends Controller
         }
         //4. buat fungsi untuk menghandle semua inputan ->
         //dimasukan ke table
-        $siswa = Siswa::create($input);
+        $siswa = siswa::create($input);
        //5.menampilkan response
           $response = [
                 'success' =>true,
@@ -81,109 +84,105 @@ class SiswaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(siswa $siswa)
+    public function show($id)
     {
-        $siswa = siswa::find($id);
-        if(!$siswa) {
+        $siswa = siswa::find(id);
+        if (!$siswa) {
             $response = [
-                    'success'=> false,
-                    'data' => 'Empty',
-                    'message' => 'Siswa tidak ditemukan.'
+                'success' =>false,
+                'data' => 'Empty',
+                'massage' =>'siswa tidak di temukan'
             ];
-            return response()->json($response, 404);
+            return response() ->json($response,404);
         }
-
         $response = [
-            'success' => true,
-            'data' => $siswa,
-            'message' => 'Berhasil.'
-        ];
-
-        return response()->json($response, 200);
+                'success' =>true,
+                'data' => $siswa,
+                'massage' =>'berhasil.'
+            ];
+            return response() ->json($response,200);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(siswa $siswa)
+    public function edit($id)
     {
-        $siswa = Siswa::all();
-        if(!$siswa) {
-            $response = [
-                    'success'=> false,
-                    'data' => 'Empty',
-                    'message' => 'Siswa tidak ditemukan.'
-            ];
-            return response()->json($response, 404);
-        }
-
-        $response = [
-            'success' => true,
-            'data' => $siswa,
-            'message' => 'Berhasil.'
-        ];
-
-        return response()->json($response, 200);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, siswa $siswa)
+    public function update(Request $request, $id)
     {
-        $siswa = Siswa::find($id);
-        $input = $request->all();
-
-        if(!$siswa) {
+          $siswa = siswa::find($id);
+          $input = $request->all();
+            if (!$siswa) {
             $response = [
-                    'success' => false,
-                    'data' => 'Empty',
-                    'message' => 'Siswa Tidak di temukan.'
+                'success' =>false,
+                'data' => 'Empty',
+                'massage' =>'siswa tidak di temukan'
             ];
-            return response()->json($response,404);
+            return $response() ->json($response,404);
         }
-
-        $validator = Validator::make($input, [
-                'nama' => 'required|min:15'
+         $validator = Validator::make($input,[
+            'nama' => 'required'
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             $response = [
-                'success' => true,
-                'data' => 'Validation error',
-                'message' => $validator->errors()
+              'success' =>false,
+                'data' => 'validator error',
+                'massage' =>$validator->error()
             ];
             return response()->json($response,500);
-        }
 
+        }
         $siswa->nama = $input['nama'];
         $siswa->save();
-
         $response = [
-            'success' => true,
-            'data' => $siswa,
-            'message' => 'Siswa Berhasil di Update.'
-        ];
+                'success' =>true,
+                'data' => $siswa,
+                'massage' =>'berhasil.'
+            ];
+            return response()->json($response,200);
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(siswa $siswa)
+    public function destroy($id)
     {
-        //
+        $siswa = siswa::find($id);
+          if (!$siswa) {
+            $response = [
+                'success' =>false,
+                'data' => 'gagal hapus',
+                'massage' =>'siswa tidak di temukan'
+            ];
+            return $response() ->json($response,404);
+        }
+           $siswa->delete();
+             $response = [
+                'success' =>true,
+                'data' => $siswa,
+                'massage' =>'berhasil. menghapus'
+            ];
+            return response()->json($response,200);
     }
 }
