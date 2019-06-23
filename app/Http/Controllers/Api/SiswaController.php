@@ -17,7 +17,7 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = siswa::all();
-        if (!$siswa) {
+        if (count($siswa) < 0) {
             $response = [
                 'success' =>false,
                 'data' => 'Empty',
@@ -28,7 +28,7 @@ class SiswaController extends Controller
         $response = [
                 'success' =>true,
                 'data' => $siswa,
-                'massage' =>'berhasil.'
+                'massage' =>'Berhasil di munculkan.'
             ];
             return response()->json($response,200);
     }
@@ -101,7 +101,7 @@ class SiswaController extends Controller
         $response = [
                 'success' =>true,
                 'data' => $siswa,
-                'massage' =>'berhasil.'
+                'massage' =>$wiswa->nama.'berhasil ditampilkan.'
             ];
             return response() ->json($response,200);
     }
@@ -128,7 +128,7 @@ class SiswaController extends Controller
     {
           $siswa = siswa::find($id);
           $input = $request->all();
-            if (!$siswa) {
+            if (is_null($siswa)) {
             $response = [
                 'success' =>false,
                 'data' => 'Empty',
@@ -172,7 +172,7 @@ class SiswaController extends Controller
           if (!$siswa) {
             $response = [
                 'success' =>false,
-                'data' => 'gagal hapus',
+                'data' => 'gagal menghapus',
                 'massage' =>'siswa tidak di temukan'
             ];
             return response() ->json($response,404);
@@ -181,7 +181,7 @@ class SiswaController extends Controller
              $response = [
                 'success' =>true,
                 'data' => $siswa,
-                'massage' =>'berhasil. menghapus'
+                'massage' => $siswa->nama.'berhasil dihapus.'
             ];
             return response()->json($response,200);
     }
