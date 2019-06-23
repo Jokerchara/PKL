@@ -34,30 +34,30 @@
           <div class="collapse navbar-collapse" id="navbarsExample05">
             <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="{{url('index')}}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="recipes.html">Recipes</a>
+                <a class="nav-link" href="{{url('recipes')}}">Recipes</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                <a class="nav-link dropdown-toggle" href="{{url('services')}}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="services.html">Catering</a>
-                  <a class="dropdown-item" href="services.html">Birthday Party</a>
-                  <a class="dropdown-item" href="services.html">Wedding Party</a>
+                  <a class="dropdown-item" href="{{url('services')}}">Catering</a>
+                  <a class="dropdown-item" href="{{url('services')}}">Birthday Party</a>
+                  <a class="dropdown-item" href="{{url('services')}}">Wedding Party</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="about.html">About</a>
+                <a class="nav-link active" href="{{url('about')}}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="news.html">News</a>
+                <a class="nav-link" href="{{url('news')}}">News</a>
               </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item cta-btn">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="{{url('contact')}}">Contact Us</a>
               </li>
             </ul>
 
@@ -221,10 +221,10 @@
           <div class="col-md-3 mb-5">
             <h3>Quick Links</h3>
             <ul class="list-unstyled footer-link">
-              <li><a href="#">About</a></li>
+              <li><a href="{{url('about')}}">About</a></li>
               <li><a href="#">Terms of Use</a></li>
               <li><a href="#">Disclaimers</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{{url('contact')}}">Contact</a></li>
             </ul>
           </div>
           <div class="col-md-3">

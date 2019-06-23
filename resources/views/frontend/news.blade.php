@@ -180,7 +180,7 @@
                 </p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
 
-                <p><a href="single.html" class="btn btn-primary btn-sm">Read More</a></p>
+                <p><a href="{{url ('frontend.single')}}" class="btn btn-primary btn-sm">Read More</a></p>
 
               </div>
 
