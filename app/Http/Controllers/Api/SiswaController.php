@@ -134,7 +134,7 @@ class SiswaController extends Controller
                 'data' => 'Empty',
                 'massage' =>'siswa tidak di temukan'
             ];
-            return $response() ->json($response,404);
+            return response() ->json($response,404);
         }
          $validator = Validator::make($input,[
             'nama' => 'required'
@@ -175,7 +175,7 @@ class SiswaController extends Controller
                 'data' => 'gagal hapus',
                 'massage' =>'siswa tidak di temukan'
             ];
-            return $response() ->json($response,404);
+            return response() ->json($response,404);
         }
            $siswa->delete();
              $response = [
