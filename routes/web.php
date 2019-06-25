@@ -12,23 +12,65 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
-Route::get('catagory', function () {
-    return view('catagory');
+Route::get('about', function () {
+    return view('frontend.about');
+});
+Route::get('archived', function () {
+    return view('frontend.archived');
 });
 Route::get('contact', function () {
-    return view('contact');
+    return view('frontend.contact');
 });
-Route::get('quize-article', function () {
-    return view('quize-article');
+Route::get('log', function () {
+    return view('frontend.login');
+});
+Route::get('log', function () {
+    return view('frontend.login');
 });
 Route::get('single-post', function () {
-    return view('single-post');
+    return view('frontend.single-post');
 });
-
+Route::get('submit-video', function () {
+    return view('frontend.submit-video');
+});
+Route::get('video-post', function () {
+    return view('frontend.video-post');
+});
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/home', function () {
+    return view ('frontend.index');
+});
 
 Auth::routes();
