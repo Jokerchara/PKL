@@ -20,10 +20,10 @@ Route::get('catagory', function () {
 Route::get('contact', function () {
     return view('contact');
 });
-Route::get('quize', function () {
+Route::get('quize-article', function () {
     return view('quize-article');
 });
-Route::get('single', function () {
+Route::get('single-post', function () {
     return view('single-post');
 });
 
