@@ -14,6 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', function () {
+    return view('catagory');
+});
+Route::get('contact', function () {
+    return view('contact');
+});
+Route::get('quize', function () {
+    return view('quize-article');
+});
+Route::get('single', function () {
+    return view('single-post');
+});
 
 Auth::routes();
 
