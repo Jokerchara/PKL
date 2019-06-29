@@ -18,7 +18,6 @@
 
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/frontend/style.css" />
-        @stack('script')
     </head>
 
     <body>
@@ -45,5 +44,6 @@
         <script src="assets/frontend/js/plugins/plugins.js"></script>
         <!-- Active js -->
         <script src="assets/frontend/js/active.js"></script>
+@stack('script')
     </body>
 </html>

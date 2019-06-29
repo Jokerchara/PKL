@@ -71,7 +71,7 @@
                                         @error('tag') is-invalid @enderror" name="tag[]" id="s2_demo3" multiple="multiple" value="{{$artikel->tag}}">
                                             @foreach ($tag as $data)
                                                 <option value="{{$data->id}}"
-                                                {{ (in_array($data->id, $select)) ? ' selected="selected"' : ''}}>
+                                                {{ (in_array($data->id, $select)) ? ' selected="selected"' : ' '}}>
                                                     {{ $data->nama_tag }}
                                                 </option>
                                             @endforeach

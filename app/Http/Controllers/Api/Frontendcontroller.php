@@ -15,7 +15,8 @@ class Frontendcontroller extends Controller
      */
     public function index()
     {
-        //
+        $artikel = artikel::orderBy('created_at', 'desc')->take()->get();
+        return view('frontend.index', compact('artikel'));
     }
 
     /**

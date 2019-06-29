@@ -70,86 +70,13 @@
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
             <!-- Sidebar Widget -->
-            <div class="single-sidebar-widget p-30">
+            <div class="single-sidebar-widget p-30 berita-berita">
                 <!-- Section Title -->
                 <div class="section-heading">
                     <h5><marquee>Paling Populer</marquee></h5>
                 </div>
 
                 <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="assets/frontend/img/bg-img/4.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Global Travel And Vacations Luxury Travel</a>
-                        <div class="post-meta d-flex justify-content-between">
-                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="assets/frontend/img/bg-img/5.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Cruising Destination Ideas</a>
-                        <div class="post-meta d-flex justify-content-between">
-                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="assets/frontend/img/bg-img/6.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">The Luxury Of Traveling With</a>
-                        <div class="post-meta d-flex justify-content-between">
-                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="assets/frontend/img/bg-img/7.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Choose The Perfect Accommodations</a>
-                        <div class="post-meta d-flex justify-content-between">
-                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="assets/frontend/img/bg-img/8.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                        <div class="post-meta d-flex justify-content-between">
-                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Sidebar Widget -->
@@ -756,3 +683,37 @@
             </div>
         </div>
 @endsection
+@push('script')
+    <script>
+        var url = 'api/most'
+        $.ajax({
+            url : url,
+            dataType: ' json ',
+            success: function(berhasil) {
+                $.each(berhasil.data, function(key, value) {
+                    console.log(berhasil)
+                    $("berita-berita").append(
+                        `
+                        <div class="single-blog-post d-flex">
+                        <div class="post-thumbnail">
+                        <img src="assets/img/artikel/${value.foto}" alt="">
+                    </div>
+                    <div class="post-content">
+                        <a href="${value.slug}" class="post-title">${value.judul}</a>
+                        <div class="post-meta d-flex justify-content-between">
+                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
+                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
+                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
+                        </div>
+                    </div>
+                    </div>
+                        `
+                    )
+                })
+            },
+            error: function(gagal){
+                console.log(gagal)
+            }
+        })
+    </script>
+@endpush

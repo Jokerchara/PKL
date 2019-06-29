@@ -24,3 +24,4 @@ Route::resource('frontend','frontend\index');
 Route::resource('welcome','WelcomeController');
 
 Route::get('videoolahraga','Api\FrontendController@videoolahraga');
+Route::get('index','Api\FrontendController@index');
