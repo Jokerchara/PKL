@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\support\facades\validator;
 use App\tag;
 
-use App\Http\Controllers\Controller;
 
 class TagController extends Controller
 {
@@ -19,7 +18,7 @@ class TagController extends Controller
     public function index()
     {
         $tag = tag::all();
-        if (count($tag) < 0) {
+        if (count($tag) <= 0) {
             $response = [
                 'success' =>false,
                 'data' => 'Empty',
@@ -53,13 +52,12 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         //1. tampung semua inputan ke $inputan
           $input = $request->all();
         //2. buat validasi di tampung ke $validator
         $validator = Validator::make($input,[
-            'nama' => 'required',
-            'slug' => 'required'
+            'nama_tag' => 'required'
         ]);
         //3. cek validasi
         if ($validator->fails()) {
@@ -68,7 +66,7 @@ class TagController extends Controller
                 'data' => 'validator error',
                 'massage' =>$validator->error()
             ];
-            return response()->json($response,500);
+            return response()->json($response,404);
 
         }
         //4. buat fungsi untuk menghandle semua inputan ->
@@ -82,7 +80,6 @@ class TagController extends Controller
             ];
             //6.tampilkan berhasil
             return response() ->json($response,200);
-
     }
 
     /**
@@ -93,7 +90,21 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = tag::find($id);
+        if (!$tag) {
+            $response = [
+                'success' =>false,
+                'data' => 'Empty',
+                'massage' =>'Kategori tidak di temukan'
+            ];
+            return response() ->json($response,404);
+        }
+        $response = [
+                'success' =>true,
+                'data' => $tag,
+                'massage' =>$tag->nama_tag.' berhasil ditampilkan.'
+            ];
+            return response() ->json($response,200);
     }
 
     /**
@@ -116,7 +127,38 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = tag::find($id);
+          $input = $request->all();
+            if (is_null($tag)) {
+            $response = [
+                'success' =>false,
+                'data' => 'Empty',
+                'massage' =>'kategori tidak di temukan'
+            ];
+            return response() ->json($response,404);
+        }
+         $validator = Validator::make($input,[
+            'nama_tag' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            $response = [
+              'success' =>false,
+                'data' => 'validator error',
+                'massage' =>$validator->error()
+            ];
+            return response()->json($response,500);
+
+        }
+        $tag->nama_tag = $input['nama_tag'];
+        $tag->slug = $input['slug'];
+        $tag->save();
+        $response = [
+                'success' =>true,
+                'data' => $tag,
+                'massage' =>'berhasil.'
+            ];
+            return response()->json($response,200);
     }
 
     /**
@@ -127,6 +169,21 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = tag::find($id);
+          if (!$tag) {
+            $response = [
+                'success' =>false,
+                'data' => 'gagal menghapus',
+                'massage' =>'tag tidak di temukan.'
+            ];
+            return response() ->json($response,404);
+        }
+           $tag->delete();
+             $response = [
+                'success' =>true,
+                'data' => $tag,
+                'massage' => $tag->nama_tag.' berhasil dihapus.'
+            ];
+            return response()->json($response,200);
     }
 }

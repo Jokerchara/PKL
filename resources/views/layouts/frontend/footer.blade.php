@@ -167,31 +167,20 @@
 
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="footer-widget">
+                    <div class="footer-widget videoolahraga">
                         <h6 class="widget-title">Video Olahraga</h6>
                         <!-- Single Blog Post -->
                         <div class="single-blog-post style-2 d-flex">
-                            <div class="post-thumbnail">
-                                <img src="assets/frontend/img/bg-img/12.jpg" alt="">
+                            <div class="post-thumbnail videoolahraga">
+                                <img src="assets/frontend/img/bg-img/" alt="">
                             </div>
                             <div class="post-content">
-                                <a href="single-post.html" class="post-title">Take A Romantic Break In A Boutique Hotel</a>
+                                <a href="single-post.html" class="post-title">
+                                    anjay
+                                </a>
                                 <div class="post-meta d-flex justify-content-between">
                                     <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 3.507</a>
                                     <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 2.907</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Blog Post -->
-                        <div class="single-blog-post style-2 d-flex">
-                            <div class="post-thumbnail">
-                                <img src="assets/frontend/img/bg-img/13.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">Travel Prudently Luggage And Carry On</a>
-                                <div class="post-meta d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 7.755</a>
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 6.050</a>
                                 </div>
                             </div>
                         </div>

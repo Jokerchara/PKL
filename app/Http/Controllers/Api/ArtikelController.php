@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\support\facades\validator;
 use App\catagory;
 use App\tag;
 use App\artikel;
-use Session;
 use Auth;
 use File;
-
-use App\Http\Controllers\Controller;
 
 class ArtikelController extends Controller
 {
@@ -21,7 +20,21 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-       //
+        $artikel = artikel::all();
+        if (count($artikel) <= 0) {
+            $response = [
+                'success' =>false,
+                'data' => 'Empty',
+                'massage' =>'artikel tidak di temukan'
+            ];
+            return response()->json($response,404);
+        }
+        $response = [
+                'success' =>true,
+                'data' => $artikel,
+                'massage' =>'Berhasil di munculkan.'
+            ];
+            return response()->json($response,200);
     }
 
     /**

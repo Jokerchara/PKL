@@ -21,3 +21,6 @@ Route::resource('catagory','Api\CatagoryController');
 Route::resource('artikel','Api\ArtikelController');
 Route::resource('tag','Api\TagController');
 Route::resource('frontend','frontend\index');
+Route::resource('welcome','WelcomeController');
+
+Route::get('videoolahraga','Api\FrontendController@videoolahraga');

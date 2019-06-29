@@ -8,13 +8,13 @@ class Artikel extends Model
 {
     protected $fillable = [
         'judul','slug','foto',
-        'konten','id_user','id_kategori'
+        'konten','id_user','id_catagory'
     ];
     public $timestamps = true;
 
-    public function kategori()
+    public function catagory()
     {
-        return $this->belongsTo('App\Kategori','id_kategori');
+        return $this->belongsTo('App\catagory','id_catagory');
     }
 
     public function user()

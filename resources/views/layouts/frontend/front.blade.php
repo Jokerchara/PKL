@@ -18,6 +18,7 @@
 
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/frontend/style.css" />
+        @stack('script')
     </head>
 
     <body>

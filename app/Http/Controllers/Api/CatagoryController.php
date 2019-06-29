@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\support\facades\validator;
 use App\catagory;
 
 class CatagoryController extends Controller
@@ -66,11 +67,6 @@ class CatagoryController extends Controller
             return response()->json($response,404);
 
         }
-
-        $catagory = new catagory;
-        $catagory->nama_catagory = $request->nama_catagory;
-        $catagory->slug = str_slug($request->nama_catagory,'-');
-        $catagory->save();
         //4. buat fungsi untuk menghandle semua inputan ->
         //dimasukan ke table
         $catagory = catagory::create($input);
@@ -130,13 +126,13 @@ class CatagoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $catagory = catagory::find($id);
+          $catagory = catagory::find($id);
           $input = $request->all();
             if (is_null($catagory)) {
             $response = [
                 'success' =>false,
                 'data' => 'Empty',
-                'massage' =>'siswa tidak di temukan'
+                'massage' =>'kategori tidak di temukan'
             ];
             return response() ->json($response,404);
         }
@@ -152,15 +148,16 @@ class CatagoryController extends Controller
             ];
             return response()->json($response,500);
 
+        }
         $catagory->nama_catagory = $input['nama_catagory'];
+        $catagory->slug = $input['slug'];
         $catagory->save();
         $response = [
                 'success' =>true,
                 'data' => $catagory,
-                'massage' =>$catagory->nama_catagory ' berhasil di edit.'
+                'massage' =>'berhasil.'
             ];
             return response()->json($response,200);
-
     }
 
     /**
@@ -176,7 +173,7 @@ class CatagoryController extends Controller
             $response = [
                 'success' =>false,
                 'data' => 'gagal menghapus',
-                'massage' =>'siswa tidak di temukan'
+                'massage' =>'catagory tidak di temukan.'
             ];
             return response() ->json($response,404);
         }
