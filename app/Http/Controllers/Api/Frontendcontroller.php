@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\artikel;
+use App\catagory;
+use App\tag;
 
-class Frontendcontroller extends Controller
+class FrontendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -85,9 +87,32 @@ class Frontendcontroller extends Controller
         //
     }
 
+    public function kategori()
+    {
+        $catagory = catagory::take(2)->get();
+        $response = [
+                'success' =>true,
+                'data' =>$catagory,
+                'massage' =>'Berhasil di munculkan.'
+            ];
+            return response()->json($response,200);
+
+    }
+    public function tag()
+    {
+        $tag = tag::take(3)->get();
+        $response = [
+                'success' =>true,
+                'data' =>$tag,
+                'massage' =>'Berhasil di munculkan.'
+            ];
+            return response()->json($response,200);
+
+    }
+
     public function videoolahraga()
     {
-        $artikel = artikel::take(3)->get();
+        $artikel = artikel::take(4)->get();
          $response = [
                 'success' =>true,
                 'data' => $artikel,
@@ -97,3 +122,8 @@ class Frontendcontroller extends Controller
 
     }
 }
+
+        //                 'artikel'=>$artikel,
+        //                 'tag'=>$tag,
+        //                 $tag = tag::all();
+        // $artikel = artikel::all();

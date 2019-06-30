@@ -20,12 +20,12 @@
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Kategori</h5>
+                <div class="section-heading tag">
+                    <h5>Tag</h5>
                 </div>
 
                 <!-- Catagory Widget -->
-                <ul class="catagory-widgets">
+                {{-- <ul class="catagory-widgets">
                     <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Gaya Hidup</span> </a></li>
                     <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Travel</span></a></li>
                     <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Makanan</span></a></li>
@@ -33,7 +33,7 @@
                     <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Sports</span></a></li>
                     <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Bola</span></a></li>
                     <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Acara Tv</span></a></li>
-                </ul>
+                </ul> --}}
             </div>
 
             <!-- Sidebar Widget -->
@@ -210,4 +210,28 @@
             </div>
         </div>
     </footer>
+     @push('script')
+    <script>
+
+         var url ='api'
+            $.ajax({
+                  url: url + '/tag',
+                  datatype : 'json',
+                  success:function(berhasil){
+                       $.each(berhasil.data,function(key,value){
+                       $(".tag").append(
+                         `
+                         <ul class="catagory widget">
+                             <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>${value.nama_tag}</span> </a></li>
+                         </ul>
+                        `
+                        )
+               })
+          },
+         error:function (gagal){
+         console.log(gagal)
+      }
+})
+    </script>
+@endpush
     <!-- ##### Footer Area End ##### -->

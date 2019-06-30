@@ -25,22 +25,11 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav">
+                            <div class="classynav kategori">
                                 <ul>
                                     <li class="active"><a href="{{url('/')}}">Home<i class="ti-home" aria-hidden="true"></i></a></li>
-                                    <li><a href="{{url('archived')}}">Archive<i class="ti-harddrive" aria-hidden="true"></i></a></li>
-                                    <li><a href="#">Pages<i class="ti-write"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{url('/')}}">Home</a></li>
-                                            <li><a href="{{url('archived')}}">Archive</a></li>
-                                            <li><a href="{{url('video-post')}}">Single Video Post</a></li>
-                                            <li><a href="{{url('single-post')}}">Single Post</a></li>
-                                            <li><a href="{{url('about')}}">About Us</a></li>
-                                            <li><a href="{{url('contact')}}">Contact</a></li>
-                                            <li><a href="{{url('log')}}">Login</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Menu<i class="ti-menu-alt" aria-hidden="true"></i></a>
+                                    {{-- s --}}
+                                    {{-- <li><a href="#">Menu<i class="ti-menu-alt" aria-hidden="true"></i></a>
                                         <div class="dropdown">
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="{{url('/')}}">Home</a></li>
@@ -50,9 +39,8 @@
                                                 <li><a href="{{url('log')}}">Login</a></li>
                                             </ul>
                                         </div>
-                                    </li>
-                                    <li><a href="{{url('about')}}">About<i class="fa fa-user"></i></a></li>
-                                    <li><a href="{{url('contact')}}">Contact<i class="fa fa-phone"></i></a></li>
+                                    </li> --}}
+
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -76,4 +64,28 @@
             </div>
         </div>
     </header>
+    @push('script')
+    <script>
+
+         var url ='api'
+            $.ajax({
+                  url: url + '/kategori',
+                  datatype : 'json',
+                  success:function(berhasil){
+                       $.each(berhasil.data,function(key,value){
+                       $(".kategori").append(
+                         `
+                         <ul class="catagory widget">
+                             <li class="active"><a href="{{url('/')}}">${value.nama_catagory}<i class="" aria-hidden="true"></i></a></li>
+                         </ul>
+                        `
+                        )
+               })
+          },
+         error:function (gagal){
+         console.log(gagal)
+      }
+})
+    </script>
+@endpush
     <!-- ##### Header Area End ##### -->

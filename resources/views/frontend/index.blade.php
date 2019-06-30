@@ -70,9 +70,9 @@
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
             <!-- Sidebar Widget -->
-            <div class="single-sidebar-widget p-30 berita-berita">
+            <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
-                <div class="section-heading">
+                <div class="section-heading berita-berita">
                     <h5><marquee>Paling Populer</marquee></h5>
                 </div>
 
@@ -81,7 +81,7 @@
 
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget">
-                <a href="#" class="add-img"><img src="assets/frontend/img/core-img/logo1.png" alt=""></a>
+                <a href="{{url('about')}}" class="add-img"><img src="assets/frontend/img/core-img/logo1.png" alt=""></a>
             </div>
 
             <!-- Sidebar Widget -->
@@ -685,15 +685,15 @@
 @endsection
 @push('script')
     <script>
-        var url = 'api/videoolahraga'
-        $.ajax({
-            url : url,
-            dataType: ' json ',
-            success: function(berhasil) {
-                $.each(berhasil.data, function(key, value) {
-                    console.log(berhasil)
-                    $("berita-berita").append(
-                        `
+
+         var url ='api'
+            $.ajax({
+                  url: url + '/videoolahraga',
+                  datatype : 'json',
+                  success:function(berhasil){
+                       $.each(berhasil.data,function(key,value){
+                       $(".berita-berita").append(
+                         `
                         <div class="single-blog-post d-flex">
                         <div class="post-thumbnail">
                         <img src="assets/img/artikel/${value.foto}" alt="">
@@ -708,12 +708,12 @@
                     </div>
                     </div>
                         `
-                    )
-                })
-            },
-            error: function(gagal){
-                console.log(gagal)
-            }
-        })
+                        )
+               })
+          },
+         error:function (gagal){
+         console.log(gagal)
+      }
+})
     </script>
 @endpush
