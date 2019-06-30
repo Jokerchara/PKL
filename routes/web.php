@@ -12,8 +12,8 @@
 */
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('front', function () {
-    return view('frontend.index');
+Route::get('/', function () {
+    return view('.frontend.index');
 });
 Route::get('about', function () {
     return view('frontend.about');
@@ -40,22 +40,20 @@ Route::get('video-post', function () {
     return view('frontend.video-post');
 });
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Auth::routes();
-Route::get('/home', function () {
-    return view ('home');
-});
 
 Auth::routes();
 
 Route::group(['prefix'=>'admin','middleware'=>['auth']],
 function () {
-    Route::get('/', function () {return view('backend.index');});
+    Route::get('back', function () {return view('backend.index');});
     route::resource('catagory','CatagoryController');
     route::resource('tag','TagController');
     route::resource('artikel','ArtikelController');
 });
+
 

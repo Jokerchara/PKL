@@ -685,7 +685,7 @@
 @endsection
 @push('script')
     <script>
-        var url = 'api/most'
+        var url = 'api/videoolahraga'
         $.ajax({
             url : url,
             dataType: ' json ',
