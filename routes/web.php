@@ -30,9 +30,7 @@ Route::get('log', function () {
 Route::get('log', function () {
     return view('frontend.login');
 });
-Route::get('single-post', function () {
-    return view('frontend.single-post');
-});
+Route::get('/single-post/{artikel}', 'FrontendController@singleblog');
 Route::get('submit-video', function () {
     return view('frontend.submit-video');
 });
@@ -48,12 +46,14 @@ Auth::routes();
 
 Auth::routes();
 
-Route::group(['prefix'=>'admin','middleware'=>['auth']],
-function () {
-    Route::get('back', function () {return view('backend.index');});
-    route::resource('catagory','CatagoryController');
-    route::resource('tag','TagController');
-    route::resource('artikel','ArtikelController');
-});
-
-
+Route::group(
+    ['prefix' => 'admin', 'middleware' => ['auth']],
+    function () {
+        Route::get('back', function () {
+            return view('backend.index');
+        });
+        route::resource('catagory', 'CatagoryController');
+        route::resource('tag', 'TagController');
+        route::resource('artikel', 'ArtikelController');
+    }
+);

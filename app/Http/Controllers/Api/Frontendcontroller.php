@@ -91,35 +91,64 @@ class FrontendController extends Controller
     {
         $catagory = catagory::take(2)->get();
         $response = [
-                'success' =>true,
-                'data' =>$catagory,
-                'massage' =>'Berhasil di munculkan.'
-            ];
-            return response()->json($response,200);
-
+            'success' => true,
+            'data' => $catagory,
+            'massage' => 'Berhasil di munculkan.'
+        ];
+        return response()->json($response, 200);
     }
     public function tag()
     {
         $tag = tag::take(3)->get();
         $response = [
-                'success' =>true,
-                'data' =>$tag,
-                'massage' =>'Berhasil di munculkan.'
-            ];
-            return response()->json($response,200);
-
+            'success' => true,
+            'data' => $tag,
+            'massage' => 'Berhasil di munculkan.'
+        ];
+        return response()->json($response, 200);
     }
 
     public function videoolahraga()
     {
         $artikel = artikel::take(4)->get();
-         $response = [
-                'success' =>true,
-                'data' => $artikel,
-                'massage' =>'berhasil.'
-            ];
-            return response() ->json($response,200);
+        $response = [
+            'success' => true,
+            'data' => $artikel,
+            'massage' => 'berhasil.'
+        ];
+        return response()->json($response, 200);
+    }
+    public function news()
+    {
+        $artikel = artikel::take(3)->get();
+        $response = [
+            'success' => true,
+            'data' => $artikel,
+            'massage' => 'berhasil.'
+        ];
+        return response()->json($response, 200);
+    }
 
+    public function footer1()
+    {
+        $artikel = artikel::take(1)->get();
+        $response = [
+            'success' => true,
+            'data' => $artikel,
+            'massage' => 'berhasil.'
+        ];
+        return response()->json($response, 200);
+    }
+
+    public function videoterakhir()
+    {
+        $artikel = artikel::take(5)->get();
+        $response = [
+            'success' => true,
+            'data' => $artikel,
+            'massage' => 'berhasil.'
+        ];
+        return response()->json($response, 200);
     }
 }
 

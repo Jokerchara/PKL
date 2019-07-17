@@ -14,10 +14,10 @@
         <title>I 4You News</title>
 
         <!-- Favicon -->
-        <link rel="icon" href="assets/frontend/img/core-img/favicon.png" />
+        <link rel="icon" href="{{asset('assets/frontend/img/core-img/favicon.png')}}" />
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="assets/frontend/style.css" />
+        <link rel="stylesheet" href="{{asset('assets/frontend/style.css')}}" />
     </head>
 
     <body>
@@ -35,15 +35,15 @@
         @include('layouts.frontend.footer')
         <!-- ##### All Javascript Script ##### -->
         <!-- jQuery-2.2.4 js -->
-        <script src="assets/frontend/js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="{{asset('assets/frontend/js/jquery/jquery-2.2.4.min.js')}}"></script>
         <!-- Popper js -->
-        <script src="assets/frontend/js/bootstrap/popper.min.js"></script>
+        <script src="{{asset('assets/frontend/js/bootstrap/popper.min.js')}}"></script>
         <!-- Bootstrap js -->
-        <script src="assets/frontend/js/bootstrap/bootstrap.min.js"></script>
+        <script src="{{asset('assets/frontend/js/bootstrap/bootstrap.min.js')}}"></script>
         <!-- All Plugins js -->
-        <script src="assets/frontend/js/plugins/plugins.js"></script>
+        <script src="{{asset('assets/frontend/js/plugins/plugins.js')}}"></script>
         <!-- Active js -->
-        <script src="assets/frontend/js/active.js"></script>
+        <script src="{{asset('assets/frontend/js/active.js')}}"></script>
 @stack('script')
     </body>
 </html>

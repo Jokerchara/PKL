@@ -8,7 +8,7 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="{{url('/')}}" class="nav-brand"><img src="assets/frontend/img/core-img/logo1.png" alt=""></a>
+                    <a href="{{url('/')}}" class="nav-brand"><img src="{{asset('assets/frontend/img/core-img/logo1.png')}}" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -28,8 +28,11 @@
                             <div class="classynav kategori">
                                 <ul>
                                     <li class="active"><a href="{{url('/')}}">Home<i class="ti-home" aria-hidden="true"></i></a></li>
+                                                <li><a href="{{url('archived')}}">Archive</a></li>
+                                                <li><a href="{{url('about')}}">About</a></li>
+                                                <li><a href="{{url('contact')}}">Contact</a></li>
                                     {{-- s --}}
-                                    {{-- <li><a href="#">Menu<i class="ti-menu-alt" aria-hidden="true"></i></a>
+                                     <li><a href="#">Menu<i class="ti-menu-alt" aria-hidden="true"></i></a>
                                         <div class="dropdown">
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="{{url('/')}}">Home</a></li>
@@ -39,7 +42,7 @@
                                                 <li><a href="{{url('log')}}">Login</a></li>
                                             </ul>
                                         </div>
-                                    </li> --}}
+                                    </li>
 
                                 </ul>
                             </div>
@@ -64,7 +67,7 @@
             </div>
         </div>
     </header>
-    @push('script')
+    {{-- @push('script')
     <script>
 
          var url ='api'
@@ -87,5 +90,5 @@
       }
 })
     </script>
-@endpush
+@endpush --}}
     <!-- ##### Header Area End ##### -->

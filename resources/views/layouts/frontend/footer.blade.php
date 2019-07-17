@@ -20,9 +20,11 @@
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
-                <div class="section-heading tag">
+                <div class="section-heading">
                     <h5>Tag</h5>
                 </div>
+                <ul class="catagory widget tag">
+                    </ul>
 
                 <!-- Catagory Widget -->
                 {{-- <ul class="catagory-widgets">
@@ -164,30 +166,7 @@
                         </nav>
                     </div>
                 </div>
-
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="footer-widget videoolahraga">
-                        <h6 class="widget-title">Video Olahraga</h6>
-                        <!-- Single Blog Post -->
-                        <div class="single-blog-post style-2 d-flex">
-                            <div class="post-thumbnail videoolahraga">
-                                <img src="assets/frontend/img/bg-img/" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">
-                                    anjay
-                                </a>
-                                <div class="post-meta d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 3.507</a>
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 2.907</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-20 col-sm-10 col-lg-6">
                     <div class="footer-widget">
                         <h6 class="widget-title">Saluran</h6>
                         <ul class="footer-tags">
@@ -221,9 +200,7 @@
                        $.each(berhasil.data,function(key,value){
                        $(".tag").append(
                          `
-                         <ul class="catagory widget">
                              <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>${value.nama_tag}</span> </a></li>
-                         </ul>
                         `
                         )
                })

@@ -1,18 +1,11 @@
 @extends('layouts.frontend.front')
 @section('content')
+                        <!-- ##### Mag Posts Area Start ##### -->
+    <section class="mag-posts-area d-flex flex-wrap">
 
     <!-- ##### Breadcrumb Area Start ##### -->
-    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/49.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="breadcrumb-content">
-                        <h2>Single Post</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
@@ -41,14 +34,14 @@
                 <div class="col-12 col-xl-8">
                     <div class="post-details-content bg-white mb-30 p-30 box-shadow">
                         <div class="blog-thumb mb-30">
-                            <img src="img/bg-img/50.jpg" alt="">
+                            <img src="{{ asset('assets/img/artikel/' .$artikel->foto)}}" alt="">
                         </div>
                         <div class="blog-content">
                             <div class="post-meta">
-                                <a href="#">MAY 8, 2018</a>
-                                <a href="archive.html">lifestyle</a>
+                                <a href="#">{{$artikel->created_at->format('d M Y')}}</a>
+                                <a href="#">Penulis : {{$artikel->user->name}}</a>
                             </div>
-                            <h4 class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</h4>
+                            <h4 class="post-title">{{ $artikel->judul }}</h4>
                             <!-- Post Meta -->
                             <div class="post-meta-2">
                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
@@ -56,194 +49,20 @@
                                 <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
                             </div>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur sita adipiscing elit. Proin molestie accumsan orci suneget placerat. Etiama faucibuss orci quis posuere vestibulu. Ut id purusos ultricies, dictumax quam id, ullamcorper urna. Curabitur sitdown nisi vitae nisi vestotana vestibul ut non massa. Aliquam erat volutpat. Morbi nect nunc et orci euismode finibus. Donec lobortis venenatis turpis. Aenean act congue arcu, nect porttitor magna. Nam consequa ligula nibh, in maximus gravida. Vivamus nuornare masa. Quisque sed honcus leo, ullamcorper auctor mi. Maecenas mollis purus, mattis nisl condimentum. Nam eros elementu, congue diam imperdiet, interdum tellus.</p>
-
-                            <p>Mauris dapibus turpis vel ialis tempor. Morbi turpis leon, pulvinar vitae convallis vitae, scelerisque necto eros. Suspendisse vitae pharetra risus. Pellentesque varius, felis in lacinia faucibus, ipsum liula aliquam nulla, non honcus nunc ipsum eu risus. Nunc finibus euismod magna sagittis. Sed dictum libero consectetur.</p>
-
-                            <div class="row">
-                                <div class="col-12 col-lg-8">
-                                    <p>Vivamus nisl metus, dictum sit amet porttitor sit amet, lobortis sit amet ipsum. Mauris ut quam non magna gravida egestas. Sed rutrum sapien eget lorem bibendum ullamcorper.</p>
-                                    <ul>
-                                        <li><i class="fa fa-check-circle-o" aria-hidden="true"></i> Duis blandit maximus tellus, sagittis volutpat tellus sandi.</li>
-                                        <li><i class="fa fa-check-circle-o" aria-hidden="true"></i> Etiam vel auctor elit. Usaceros suscipit, lobortis felis non.</li>
-                                        <li><i class="fa fa-check-circle-o" aria-hidden="true"></i> Integer sagittis finibus nequer, euster tincidunt misult.</li>
-                                        <li><i class="fa fa-check-circle-o" aria-hidden="true"></i> Pellentesque euismod semeget diam ege</li>
-                                    </ul>
-                                    <p>Aliquam venenatis dui elit, et viverra mi maximus quis. Etiam vel auctor elit. Ut ac eros suscipit, lobortis felison, vulputate tellus. Suspendisse hendrerit aliquet lectus.</p>
+                            <p>{!! $artikel->konten !!}</p>
+                            <div class="tag-widget post-tag-container mb-5 mt-5">
+                                @foreach($artikel->tag as $data)
+                                <div class="tagcloud">
+                                    <a class="tag-cloud-link" href="/blog-tag/{{ $data->slug }}">
+                                        #{{ $data->nama_tag }}
+                                    </a>
                                 </div>
-                                <div class="col-12 col-lg-4">
-                                    <img class="mb-15" src="img/bg-img/51.jpg" alt="">
-                                </div>
-                            </div>
-
-                            <p>Mauris nisi arcu, consectetur convallis fringilla quis, posuere ac mauris. Ut in placerat lorem. Donec cursus malesuada nibhem, eget consectetur posuere sed. Suspendisse auctor nec diamet consectetur. Etiam ac maurised nisib tincidunt viverra. Sed nulla lacus, convallis vel nunc sed, fringilla venenatis neque.</p>
-
-                            <blockquote>
-                                <h6 class="quote-text">“Design is a funny word. Some people think design means how it looks. But of course, if you dig deeper, it's really how it works. The design of the Mac wasn't what it looked like, although that was part of it.”</h6>
-                                <h6 class="quote-name">STEVE JOBS</h6>
-                            </blockquote>
-
-                            <p>Phasellus laoreet mattis ultrices. Integer ex sem, ultrices eu sem in, laoreet vehicula ligula. Phasellus quistor blandit salah convallis augue. Sed velot dictum sapient. In pulvinar libero turpis. Quisque facilisis bigbang consenti. Nullam bendumaz, massan consequat in gravida porttitor, aguet lacus condimentum mauris, id blandit quam augue eget mana. Etiam denim jeans lacus, nascetur auge bibendum vel pulvinar viverra, mattis sit amet mi. Mauris fringilla, ex vitae maximus fringilla, neque sapien maximus justo, cursus risus neque sed nibh. Donec at urna eros scelerisque non nibh sed.</p>
-
-                            <!-- Like Dislike Share -->
-                            <div class="like-dislike-share my-5">
-                                <h4 class="share">240<span>Share</span></h4>
-                                <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
-                                <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
-                            </div>
-
-                            <!-- Post Author -->
-                            <div class="post-author d-flex align-items-center">
-                                <div class="post-author-thumb">
-                                    <img src="img/bg-img/52.jpg" alt="">
-                                </div>
-                                <div class="post-author-desc pl-4">
-                                    <a href="#" class="author-name">Alan Shaerer</a>
-                                    <p>Duis tincidunt turpis sodales, tincidunt nisi et, auctor nisi. Curabitur vulputate sapien eu metus ultricies fermentum nec vel augue. Maecenas eget lacinia est.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Related Post Area -->
-                    <div class="related-post-area bg-white mb-30 px-30 pt-30 box-shadow">
-                        <!-- Section Title -->
-                        <div class="section-heading">
-                            <h5>Related Post</h5>
-                        </div>
-
-                        <div class="row">
-                            <!-- Single Blog Post -->
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="single-blog-post style-4 mb-30">
-                                    <div class="post-thumbnail">
-                                        <img src="img/bg-img/29.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <a href="single-post.html" class="post-title">Dentists Are Smiling Over Painless Veneer</a>
-                                        <div class="post-meta d-flex">
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Blog Post -->
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="single-blog-post style-4 mb-30">
-                                    <div class="post-thumbnail">
-                                        <img src="img/bg-img/30.jpg" alt="">
-                                        <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                                        <span class="video-duration">09:27</span>
-                                    </div>
-                                    <div class="post-content">
-                                        <a href="single-post.html" class="post-title">Will The Democrats Be Able To Reverse</a>
-                                        <div class="post-meta d-flex">
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Blog Post -->
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="single-blog-post style-4 mb-30">
-                                    <div class="post-thumbnail">
-                                        <img src="img/bg-img/28.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <a href="single-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                                        <div class="post-meta d-flex">
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
 
                         </div>
                     </div>
 
-                    <!-- Comment Area Start -->
-                    <div class="comment_area clearfix bg-white mb-30 p-30 box-shadow">
-                        <!-- Section Title -->
-                        <div class="section-heading">
-                            <h5>COMMENTS</h5>
-                        </div>
-
-                        <ol>
-                            <!-- Single Comment Area -->
-                            <li class="single_comment_area">
-                                <!-- Comment Content -->
-                                <div class="comment-content d-flex">
-                                    <!-- Comment Author -->
-                                    <div class="comment-author">
-                                        <img src="img/bg-img/53.jpg" alt="author">
-                                    </div>
-                                    <!-- Comment Meta -->
-                                    <div class="comment-meta">
-                                        <a href="#" class="comment-date">27 Aug 2019</a>
-                                        <h6>Tomas Mandy</h6>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius</p>
-                                        <div class="d-flex align-items-center">
-                                            <a href="#" class="like">like</a>
-                                            <a href="#" class="reply">Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <ol class="children">
-                                    <li class="single_comment_area">
-                                        <!-- Comment Content -->
-                                        <div class="comment-content d-flex">
-                                            <!-- Comment Author -->
-                                            <div class="comment-author">
-                                                <img src="img/bg-img/54.jpg" alt="author">
-                                            </div>
-                                            <!-- Comment Meta -->
-                                            <div class="comment-meta">
-                                                <a href="#" class="comment-date">27 Aug 2019</a>
-                                                <h6>Britney Millner</h6>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius</p>
-                                                <div class="d-flex align-items-center">
-                                                    <a href="#" class="like">like</a>
-                                                    <a href="#" class="reply">Reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </li>
-
-                            <!-- Single Comment Area -->
-                            <li class="single_comment_area">
-                                <!-- Comment Content -->
-                                <div class="comment-content d-flex">
-                                    <!-- Comment Author -->
-                                    <div class="comment-author">
-                                        <img src="img/bg-img/55.jpg" alt="author">
-                                    </div>
-                                    <!-- Comment Meta -->
-                                    <div class="comment-meta">
-                                        <a href="#" class="comment-date">27 Aug 2019</a>
-                                        <h6>Simon Downey</h6>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius</p>
-                                        <div class="d-flex align-items-center">
-                                            <a href="#" class="like">like</a>
-                                            <a href="#" class="reply">Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <!-- Post A Comment Area -->
                     <div class="post-a-comment-area bg-white mb-30 p-30 box-shadow clearfix">
                         <!-- Section Title -->
                         <div class="section-heading">
@@ -254,18 +73,27 @@
                         <div class="contact-form-area">
                             <form action="#" method="post">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name*" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email*" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message*" required></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn mag-btn mt-30" type="submit">Submit Comment</button>
-                                    </div>
+                                        <div id="disqus_thread"></div>
+                                        <script>
+
+                                            /**
+                                            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                            /*
+                                            var disqus_config = function () {
+                                            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                            };
+                                            */
+                                            (function () { // DON'T EDIT BELOW THIS LINE
+                                                var d = document, s = d.createElement('script');
+                                                s.src = 'https://blog-family-friendly.disqus.com/embed.js';
+                                                s.setAttribute('data-timestamp', +new Date());
+                                                (d.head || d.body).appendChild(s);
+                                            })();
+                                        </script>
+                                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+                                                Disqus.</a></noscript>
                                 </div>
                             </form>
                         </div>
@@ -273,3 +101,69 @@
                 </div>
 
 @endsection
+@push('script')
+    <script>
+
+         var url ='api'
+            $.ajax({
+                  url: url + '/videoolahraga',
+                  datatype : 'json',
+                  success:function(berhasil){
+                       $.each(berhasil.data,function(key,value){
+                       $(".berita-berita").append(
+                         `
+                <div class="single-blog-post d-flex ">
+                        <div class="post-thumbnail">
+                            <img src="assets/img/artikel/${value.foto}" alt="">
+                        </div>
+                        <div class="post-content">
+                                <a href="${value.slug}" class="post-title">${value.judul}</a>
+                            <div class="post-meta d-flex justify-content-between">
+                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
+                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
+                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
+                            </div>
+                        </div>
+                        </div>
+                        `
+                        )
+               })
+          },
+         error:function (gagal){
+         console.log(gagal)
+      }
+})
+    </script>
+    <script>
+
+         var url ='api'
+            $.ajax({
+                  url: url + '/videoterakhir',
+                  datatype : 'json',
+                  success:function(berhasil){
+                       $.each(berhasil.data,function(key,value){
+                       $(".videoterakhir").append(
+                         `
+                         <div class="single-blog-post d-flex ">
+                            <div class="post-thumbnail">
+                        <img src="assets/img/artikel/${value.foto}" alt="">
+                    </div>
+                    <div class="post-content">
+                        <a href="/single-post/${value.slug}" class="post-title">${value.judul}</a>
+                        <div class="post-meta d-flex justify-content-between">
+                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
+                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
+                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
+                        </div>
+                    </div>
+                    </div>
+                        `
+                        )
+               })
+          },
+         error:function (gagal){
+         console.log(gagal)
+      }
+})
+    </script>
+@endpush
