@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Post Details Content Area -->
-                <div class="col-12 col-xl-8">
+                <div class="col-15 col-xl-8">
                     <div class="post-details-content bg-white mb-30 p-30 box-shadow">
                         <div class="blog-thumb mb-30">
                             <img src="{{ asset('assets/img/artikel/' .$artikel->foto)}}" alt="">
