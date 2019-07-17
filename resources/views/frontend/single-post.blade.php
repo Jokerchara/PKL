@@ -72,7 +72,6 @@
                         <!-- Reply Form -->
                         <div class="contact-form-area">
                             <form action="#" method="post">
-                                <div class="row">
                                         <div id="disqus_thread"></div>
                                         <script>
 
@@ -96,7 +95,6 @@
                                                 Disqus.</a></noscript>
                                 </div>
                             </form>
-                        </div>
                     </div>
                 </div>
 
