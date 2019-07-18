@@ -31,6 +31,7 @@ Route::get('log', function () {
     return view('frontend.login');
 });
 Route::get('/single-post/{artikel}', 'FrontendController@singleblog');
+Route::get('/blog-tag/{nama_tag}', 'FrontendController@blogtag');
 Route::get('submit-video', function () {
     return view('frontend.submit-video');
 });

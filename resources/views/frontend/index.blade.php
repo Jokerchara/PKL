@@ -128,7 +128,7 @@
                             <img src="assets/img/artikel/${value.foto}" alt="">
                         </div>
                         <div class="post-content">
-                                <a href="${value.slug}" class="post-title">${value.judul}</a>
+                                <a href="/single-post/${value.slug}" class="post-title">${value.judul}</a>
                             <div class="post-meta d-flex justify-content-between">
                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
                                 <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>

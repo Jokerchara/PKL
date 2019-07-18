@@ -200,7 +200,7 @@
                        $.each(berhasil.data,function(key,value){
                        $(".tag").append(
                          `
-                             <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>${value.nama_tag}</span> </a></li>
+                             <li><a href="/blog-tag/${value.slug}"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>${value.nama_tag}</span> </a></li>
                         `
                         )
                })

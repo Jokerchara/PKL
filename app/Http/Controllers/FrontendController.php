@@ -19,9 +19,9 @@ class FrontendController extends Controller
     public function blog()
     {
         $artikel = artikel::orderBy('created_at', 'desc')->panigate();
-        $kategori = kategori::all();
+        $catagory = catagory::all();
         $tag = tag::all();
-        return view('frontend.blog', compact('artikel', 'tag', 'kategori'));
+        return view('frontend.blog', compact('artikel', 'tag', 'catagory'));
     }
 
     public function singleblog(artikel $artikel)
@@ -33,17 +33,17 @@ class FrontendController extends Controller
 
     public function blogtag(tag $tag)
     {
-        $artikel = $tag->artikel()->latest()->panigate(5);
-        $kategori = kategori::all();
+        $artikel = $tag->artikel()->latest()->paginate(5);
+        $catagory = catagory::all();
         $tag = tag::all();
-        return view('frontend.blog', compact('artikel', 'tag', 'kategori'));
+        return view('frontend.archived', compact('artikel', 'tag', 'catagory'));
     }
-    public function blogkategori(kategori $kategori)
+    public function blogcatagory(catagory $catagory)
     {
-        $artikel = $kategori->artikel()->latest()->panigate(5);
-        $kategori = kategori::all();
+        $artikel = $catagory->artikel()->latest()->panigate(5);
+        $catagory = catagory::all();
         $tag = tag::all();
-        return view('frontend.blog', compact('artikel', 'tag', 'kategori'));
+        return view('frontend.blog', compact('artikel', 'tag', 'catagory'));
     }
 
     public function videoolahraga()
