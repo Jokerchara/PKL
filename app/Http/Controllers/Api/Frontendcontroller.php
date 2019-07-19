@@ -99,7 +99,7 @@ class FrontendController extends Controller
     }
     public function tag()
     {
-        $tag = tag::take(3)->get();
+        $tag = tag::take(4)->get();
         $response = [
             'success' => true,
             'data' => $tag,

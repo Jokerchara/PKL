@@ -88,7 +88,7 @@
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
                 <div class="section-heading videoterakhir">
-                    <h5><marquee>Video Terakhir</marquee></h5>
+                    <h5><marquee>Berita Terkini</marquee></h5>
                 </div>
 
                 <!-- Single Blog Post -->
@@ -117,7 +117,7 @@
 
          var url ='api'
             $.ajax({
-                  url: url + '/videoolahraga',
+                  url: url + '/news',
                   datatype : 'json',
                   success:function(berhasil){
                        $.each(berhasil.data,function(key,value){
@@ -149,7 +149,7 @@
 
          var url ='api'
             $.ajax({
-                  url: url + '/videoterakhir',
+                  url: url + '/videoolahraga',
                   datatype : 'json',
                   success:function(berhasil){
                        $.each(berhasil.data,function(key,value){
@@ -181,7 +181,7 @@
 <script>
     var url = 'api'
         $.ajax({
-            url: url+"/news",
+            url: url+"/videoterakhir",
             datatype : 'json',
             success:function(berhasil){
                 $.each(berhasil.data,function(key,value){
