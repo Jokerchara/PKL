@@ -59,48 +59,11 @@
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="{{url('/')}}">Home<i class="ti-home" aria-hidden="true"></i></a></li>
-                                    <li><a href="{{url('archived')}}">Archive<i class="ti-harddrive" aria-hidden="true"></i></a></li>
-                                    <li><a href="#">Pages<i class="ti-write"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{url('/')}}">Home</a></li>
-                                            <li><a href="{{url('archived')}}">Archive</a></li>
-                                            <li><a href="{{url('video-post')}}">Single Video Post</a></li>
-                                            <li><a href="{{url('single-post')}}">Single Post</a></li>
-                                            <li><a href="{{url('about')}}">About Us</a></li>
-                                            <li><a href="{{url('contact')}}">Contact</a></li>
-                                            <li><a href="{{url('log')}}">Login</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Menu<i class="ti-menu-alt" aria-hidden="true"></i></a>
-                                        <div class="dropdown">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="{{url('/')}}">Home</a></li>
-                                                <li><a href="{{url('archived')}}">Archive</a></li>
-                                                <li><a href="{{url('video-post')}}">Single Video Post</a></li>
-                                                <li><a href="{{url('single-post')}}">Single Post</a></li>
-                                                <li><a href="{{url('log')}}">Login</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="{{url('about')}}">About<i class="fa fa-user"></i></a></li>
-                                    <li><a href="{{url('contact')}}">Contact<i class="fa fa-phone"></i></a></li>
+                                    <li><a href="{{url('about')}}">About<i></i></a></li>
+                                    <li><a href="{{url('contact')}}">Contact<i ></i></a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
-                        </div>
-
-                        <div class="top-meta-data d-flex align-items-center">
-                            <!-- Top Search Area -->
-                            <div class="top-search-area">
-                                <form action="{{url('/')}}" method="post">
-                                    <input type="search" name="top-search" id="topSearch" placeholder="Search and hit enter...">
-                                    <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-                            <!-- Login -->
-                            <a href="{{url('log')}}" class="login-btn">LogIn</a>
-                            <!-- Submit Video -->
-                            <a href="{{url('submit-video')}}" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">Submit Video</span></a>
                         </div>
                     </div>
                 </nav>
@@ -146,11 +109,6 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-8">
                     <div class="contact-content-area bg-white mb-30 p-30 box-shadow">
-                        <!-- Google Maps -->
-                        <div class="map-area mb-30">
-                            <iframe src="https://www.google.com/maps/place/H%26B+entertainment/@-6.9797366,107.6096949,15z/data=!4m5!3m4!1s0x0:0x245ad187c1c81aba!8m2!3d-6.9852221!4d107.6041827" allowfullscreen></iframe>
-                        </div>
-
                         <!-- Section Title -->
                         <div class="section-heading">
                             <h5>Contact Info</h5>
@@ -201,26 +159,27 @@
                         <!-- Contact Form Area -->
                         <div class="contact-form-area">
                             <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="name" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="E-mail">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn mag-btn mt-30" type="submit">Send</button>
-                                    </div>
-                                </div>
+                                <div id="disqus_thread"></div>
+                                        <script>
+
+                                            /**
+                                            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                            /*
+                                            var disqus_config = function () {
+                                            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                            };
+                                            */
+                                            (function () { // DON'T EDIT BELOW THIS LINE
+                                                var d = document, s = d.createElement('script');
+                                                s.src = 'https://blog-family-friendly.disqus.com/embed.js';
+                                                s.setAttribute('data-timestamp', +new Date());
+                                                (d.head || d.body).appendChild(s);
+                                            })();
+                                        </script>
+                                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+                                                Disqus.</a></noscript>
                             </form>
                         </div>
                     </div>
@@ -244,44 +203,8 @@
                         </div>
 
                         <!-- Sidebar Widget -->
-                        <div class="single-sidebar-widget p-30">
-                            <!-- Section Title -->
-                            <div class="section-heading">
-                                <h5>Kategori</h5>
-                            </div>
-
-                            <!-- Catagory Widget -->
-                            <ul class="catagory-widgets">
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Gaya Hidup</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Travel</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Makanan</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Game</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Sports</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Bola</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Acara Tv</span></a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Sidebar Widget -->
                         <div class="single-sidebar-widget">
                             <a href="#" class="add-img"><img src="assets/frontend/img/core-img/logo1.png" alt=""></a>
-                        </div>
-
-                       <!-- Sidebar Widget -->
-                        <div class="single-sidebar-widget p-30">
-                            <!-- Section Title -->
-                            <div class="section-heading">
-                                <h5>Youtube</h5>
-                            </div>
-
-                            <div class="newsletter-form">
-                                <p>Subscribe Channel YouTube kami untuk mendapatkan informasi terbaru.</p>
-                                <form action="#" method="get">
-                                    <input type="search" name="widget-search" placeholder="Enter your email">
-                                    <button type="submit" class="btn mag-btn w-100">Subscribe</button>
-                                </form>
-                            </div>
-
                         </div>
                     </div>
                 </div>
