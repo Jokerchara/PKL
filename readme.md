@@ -58,7 +58,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - [Understand.io](https://www.understand.io/)
 - [Abdel Elrafa](https://abdelelrafa.com)
 - [Hyper Host](https://hyper.host)
-
+- [Love mr.Bean](https://hyper.host)
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
